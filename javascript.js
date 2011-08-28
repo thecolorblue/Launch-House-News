@@ -51,7 +51,7 @@ $('#container').isotope({
       if(results){
         for(i=0;i<results.length;i++){
           date = Date.parse(results[i].time);
-          var $newItem = $('<div class="item meetup" data-desc="' + results[i].description + '" data-title="' + results[i].name + '" data-date="' + date +'"><p>' + results[i].name + '</p></div>');
+          var $newItem = $('<div class="item meetup" data-desc="' + results[i].description + '" data-title="' + results[i].name + '" data-date="' + date +'"><p>' + results[i].name + '</p><ul class="buttons"><li>link</li></ul></div>');
           $('#container').isotope( 'insert', $newItem );
         }    
       }
