@@ -1,0 +1,73 @@
+.meetup {
+width:150px;    
+}
+.vimeo {
+width:210px;    
+z-index:100;
+}
+.twitter {
+z-index:100;    
+}
+.wrapper {
+background:#eee;    
+position:absolute;
+top:100px;
+left:10%;
+}
+
+#container {
+padding:20px;
+border:1px #ddd;
+}
+.box {
+width:250px;    
+display:inline;
+}
+.item {
+padding:5px;
+margin:5px;
+background:#ccc;
+}
+
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+.controls ul {
+list-style:none;
+position:relative;
+bottom:15px;
+}
+
+.controls ul li {
+display:inline-block;
+cursor:pointer;    
+padding:20px;
+}
+.iso {
+float:right;
+
+}
+
+.twitter {
+width:200px;
+font-size:14px;
+background-color:#199;
+color:#fff;
+}
