@@ -1,0 +1,18 @@
+#keepstream-collection-1 {
+width:270px;    
+}
+
+.meetup {
+-webkit-box-shadow: px px 5px 5px #ddd;
+-moz-box-shadow: px px 5px 5px #ddd;
+box-shadow: px px 5px 5px #ddd;    
+}
+
+.container_12 {
+border: 1px solid #ddd;    
+}
+
+.grid_4, .grid_6, .grid_5, .grid_3 {
+border: 1px solid #ddd;
+padding:10px;
+}

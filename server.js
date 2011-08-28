@@ -12,7 +12,7 @@ var express = require('express');
 
 var app = express.createServer();
 
-app.use(express.static(__dirname + '/gh-pages'));
+app.use(express.static(__dirname + '/'));
 
 app.listen(3000);
 
