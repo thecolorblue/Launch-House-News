@@ -7,15 +7,15 @@ $('#container').isotope({
         itemClasss : '.item',
         layoutMode : 'fitRows',
         getSortData : {
-    name : function ( $elem ) {
-      return $elem.attr('name');
+    date : function ( $elem ) {
+      return $elem.attr('data-date');
     },
     type : function ( $elem ) {
       return $elem.attr('class');
     }
     },
     
-        sortBy: 'name',
+        sortBy: 'date',
         animationOptions: {
      duration: 750,
      easing: 'linear',
@@ -28,9 +28,11 @@ $('#container').isotope({
     url: "http://vimeo.com/api/v2/launchhouse/videos.json",
     success: function(resp){
         console.log(resp);
+        var date = '';
       if(resp[0]){
         for(i=0;i<resp.length;i++){
-          var newItem = $('<div data-id="' + resp[i].id + '" data-title="' + resp[i].title + '" class="item vimeo">' + resp[i].title + '<img src="' + resp[i].thumbnail_medium + '"/></div>');
+          date = Date.parse(resp[i].upload_date);
+          var newItem = $('<div data-id="' + resp[i].id + '" data-title="' + resp[i].title + '" class="item vimeo" data-date="' + date + '">' + resp[i].title + '<img src="' + resp[i].thumbnail_medium + '"/></div>');
           $('#container').isotope( 'insert', newItem );
         }    
       }
@@ -43,11 +45,13 @@ $('#container').isotope({
     url: "http://api.meetup.com/events.json",
     data: {'group_urlname':'LaunchHouse','key':'3355185ba2f32674b5e527e6b204521'},
     success: function(resp){
+        var date = '';
         console.log(resp);
         var results = resp.results;
       if(results){
         for(i=0;i<results.length;i++){
-          var $newItem = $('<div class="item meetup" data-desc="' + results[i].description + '" data-title="' + results[i].name + '" name="' + results[i].time +'"><p>' + results[i].name + '</p></div>');
+          date = Date.parse(results[i].time);
+          var $newItem = $('<div class="item meetup" data-desc="' + results[i].description + '" data-title="' + results[i].name + '" data-date="' + date +'"><p>' + results[i].name + '</p></div>');
           $('#container').isotope( 'insert', $newItem );
         }    
       }
@@ -60,18 +64,20 @@ $('#container').isotope({
     url: "http://search.twitter.com/search.json",
     data: {'q':'@lnchhouse'},
     success: function(resp){
+        var date = '';
       console.log(resp);
       twttr.anywhere(function(T){
       var results = resp.results;
       if(results){
         for(i=0;i<results.length;i++){
-          var $newItem = $('<div class="item twitter" name="' + results[i].created_at + '"><p>' + results[i].text + '</p></div>');
+            date = Date.parse(results[i].created_at);
+          var $newItem = $('<div class="item twitter" data-date="' + date + '"><p>' + results[i].text + '</p></div>');
           $('#container').isotope( 'insert', $newItem );
         }    
       }
-      $('#container').isotope('reLayout');
       T('#container').linkifyUsers();
       T('#container').hovercards({ expanded: true });
+      $('#container').isotope('reLayout');
       });
     }
   });
