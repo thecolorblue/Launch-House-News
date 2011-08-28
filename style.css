@@ -20,8 +20,9 @@ padding:20px;
 border:1px #ddd;
 }
 .box {
-width:250px;    
-display:inline;
+width:260px;    
+display:inline-block;
+padding:20px;
 }
 .item {
 padding:5px;
@@ -29,6 +30,14 @@ margin:5px;
 background:#ccc;
 }
 
+#meetup-events {
+font-size:12px;    
+}
+#meetups {
+}
+#meetups img {
+margin:0 12%;    
+}
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -70,4 +79,8 @@ width:200px;
 font-size:14px;
 background-color:#199;
 color:#fff;
+}
+.twitter-anywhere-user {
+color:#33CCFF;    
+text-decoration:none;
 }

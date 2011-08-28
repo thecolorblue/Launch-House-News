@@ -32,7 +32,25 @@
     Vimeo
   </div>
   <div class="box">
-    Meetups
+    <h3>Launch House Meetups</h3>
+<hr/>
+<script type="text/javascript">
+var theEvents = {};
+function events_callback(json) { theEvents = json; }
+</script>
+<script src="http://api.meetup.com/events.json/?callback=events_callback&group_urlname=launchhouse&key=3355185ba2f32674b5e527e6b204521">
+</script>
+<script>
+if (theEvents['results'].length <= 0) {
+  document.write('<i>None currently scheduled--please check back!</i><br /><br />')
+}
+for (var i = 0; i < 5; i++) {
+document.write('<b>'+theEvents['results'][i].time.substring(0,10) + '</b><br />')
+
+document.write('<a href="' + theEvents['results'][i].event_url + '">' + theEvents['results'][i].name + '</a><br /><br />')
+}
+</script>
+<center><a href="http://www.meetup.com/launchhouse/"><img border="0" src="http://img1.meetupstatic.com/94068167911579584/img/logo_63x42.png" /></a></center>
   </div>
   <div class="box">
     Launch House Twitter
